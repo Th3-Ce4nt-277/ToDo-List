@@ -1,0 +1,260 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+	padding: 0;
+	margin: 0;
+	font-family: 'Montserrat';
+	box-sizing: border-box;
+	transition: background-color 0.3s ease, border 0.3s ease,
+		color 0.3s ease, opacity 0.3s ease;
+}
+
+*.dark {
+	--bg-color: #281b3b;
+	--bg-task: #1f162f;
+	--border-color: #2e1a48;
+	--bg-button: #8f4fe3;
+	--check-border: #3c2061;
+	--check-hover: #291057;
+	--footer-color: #1a0b30;
+	--txt-color: white;
+	--remove-color: #ff5555;
+}
+*.light {
+	--bg-color: #fbf8ff;
+	--bg-task: #f2ebff;
+	--border-color: #e2cdff;
+	--bg-button: #7725e2;
+	--check-border: #d3b7fa;
+	--check-hover: #e7d5ff;
+	--footer-color: #dac4f6;
+	--txt-color: #190230;
+	--remove-color: #ed3a3a;
+}
+html {
+	overflow-x: hidden;
+}
+
+body {
+	background-color: var(--bg-color);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 100vh;
+}
+
+button {
+	border: none;
+	outline: none;
+	background: none;
+	cursor: pointer;
+}
+
+.modalBlur {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	top: 100vh;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	background-color: #00000080;
+	backdrop-filter: blur(5px);
+	z-index: 10;
+	opacity: 0;
+}
+
+.modalEditTask {
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+
+	background-color: var(--bg-task);
+	border: 1px solid var(--border-color);
+	color: var(--txt-color);
+	padding: 20px;
+	border-radius: 8px;
+	box-shadow: 0 0px 10px #00000038;
+}
+
+.modalEditTask header {
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 2px solid var(--border-color);
+	padding-bottom: 10px;
+}
+
+.modalEditTask header svg {
+	fill: var(--txt-color);
+	cursor: pointer;
+}
+
+.modalEditTask input {
+	width: 100%;
+	height: 40px;
+	border-radius: 8px;
+	border: 1px solid var(--footer-color);
+	background-color: var(--bg-color);
+	color: var(--txt-color);
+	padding-left: 10px;
+	font-size: 16px;
+	outline: none;
+}
+
+.btn-save {
+	width: 100%;
+	height: 42px;
+	border: none;
+	border-radius: 8px;
+	background-color: var(--bg-button);
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+.container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: -122px;
+	height: 100%;
+}
+.task-header {
+	width: 50vw;
+	display: flex;
+	justify-content: space-between;
+}
+
+.img {
+	width: 100vw;
+	min-height: 40vh;
+	background-image: url('/assets/scene.webp');
+	background-size: cover;
+	background-position: center;
+}
+
+.gradient {
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to right, #19c5ffa8, #7916fba8);
+}
+.task-list {
+	width: 50vw;
+	margin-top: 20px;
+	list-style: none;
+	border-radius: 8px;
+	border: 1px solid var(--border-color);
+	box-shadow: 0 0px 5px #00000038;
+	overflow: hidden;
+}
+.task {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	border-bottom: 1px solid var(--border-color);
+	padding: 0 11px;
+	min-height: 42px;
+	background-color: var(--bg-task);
+	color: var(--txt-color);
+	font-size: 18px;
+	font-weight: 400;
+}
+.task div {
+	display: flex;
+	align-items: center;
+	padding: 11px 0;
+	gap: 11px;
+}
+.task.completed span {
+	text-decoration: line-through;
+	color: var(--txt-color);
+	opacity: 0.3;
+}
+.checkbox {
+	height: 20px;
+	width: 20px;
+	border: 2px solid var(--check-border);
+	border-radius: 4px;
+}
+.checkbox:hover {
+	background-color: var(--check-hover);
+}
+.checkbox svg {
+	fill: #fff;
+	opacity: 0;
+	margin: 5px;
+}
+.task.completed .checkbox svg {
+	opacity: 1;
+}
+
+.task.completed .checkbox {
+	background-color: var(--bg-button);
+	border: none;
+}
+.btn-deleteTask svg {
+	fill: var(--remove-color);
+}
+.btn-editTask svg {
+	fill: var(--bg-button);
+}
+
+.txt-task {
+	width: 50vw;
+	height: 42px;
+	padding-left: 20px;
+	border-radius: 8px;
+	background-color: var(--bg-task);
+	border: 1px solid var(--border-color);
+	outline: none;
+	font-size: 18px;
+	color: var(--txt-color);
+	font-weight: 500;
+	box-shadow: 0 0px 5px #0000001a;
+}
+.btn-addTask {
+	width: 15vw;
+	height: 42px;
+	margin-top: -21px;
+	margin-bottom: 40px;
+	border: none;
+	border-radius: 8px;
+	background-color: var(--bg-button);
+	color: white;
+	font-size: 16px;
+	cursor: pointer;
+}
+
+footer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	color: var(--txt-color);
+	background-color: var(--footer-color);
+	min-height: 50px;
+	width: 100vw;
+}
+footer a {
+	color: var(--bg-button);
+	font-weight: 600;
+}
+
+@media screen and (max-width: 900px) {
+	.task-header,
+	.task-list,
+	.txt-task {
+		width: 80vw;
+	}
+	.img {
+		min-height: 25vh;
+	}
+	.btn-addTask {
+		width: 40vw;
+	}
+}
+@media screen and (max-width: 600px) {
+	.modalEditTask {
+		width: 70vw;
+	}
+}

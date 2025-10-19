@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/assets/favicon.ico">
+    <link rel="stylesheet" href="style.css">
+    <script src="/index.js"></script>
+    <title>ToDo List</title>
+</head>
+<body onload="loadData()" class="dark">
+    <div class="modalBlur" onclick="closeEditModal()">
+        <form class="modalEditTask" onclick="event.stopPropagation()" onsubmit="event.preventDefault()">
+            <header>
+                <h2>Edit Task</h2>
+                <button onclick="closeEditModal()">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.021 512.021" width="18" height="18">
+                        <g>
+                            <path
+                                d="M301.258,256.01L502.645,54.645c12.501-12.501,12.501-32.769,0-45.269c-12.501-12.501-32.769-12.501-45.269,0l0,0   L256.01,210.762L54.645,9.376c-12.501-12.501-32.769-12.501-45.269,0s-12.501,32.769,0,45.269L210.762,256.01L9.376,457.376   c-12.501,12.501-12.501,32.769,0,45.269s32.769,12.501,45.269,0L256.01,301.258l201.365,201.387   c12.501,12.501,32.769,12.501,45.269,0c12.501-12.501,12.501-32.769,0-45.269L301.258,256.01z" />
+                        </g>
+                    </svg>
+                </button>
+            </header>
+            <span id="editingTask"></span>
+            <input type="text" id="txt-editTask">
+            <div class="modal-buttons">
+                <button type="submit" onclick="editTasks()" class="btn-save" id="btn-save">Save</button>
+            </div>
+        </form>
+    </div>
+    <header class="img"><div class="gradient"></div></header>
+    <div class="container">
+        <header class="task-header">
+            <h1 style="color: white;">TODO</h1>
+            <button onclick="switchTheme('switching')"><img id="theme" src="" alt=""></button>
+        </header>
+        <input type="text" class="txt-task" id="txt-task" placeholder="Your new task here">
+        <ul class="task-list">
+            <li class="task" id="task-space"></li>
+        </ul>
+        <button onclick="addTask(document.getElementById('txt-task'))" class="btn-addTask">New Task</button>
+    </div>
+    <footer>
+        <p>Coded by <a target="_blank" href="https://github.com/Th3-Ce4nt-277">Ceant</a> • Github Repository <a target="_blank" href="https://github.com/Th3-Ce4nt-277/ToDo-List">Here</a></p>
+    </footer>
+</body>
+</html>
