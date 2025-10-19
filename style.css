@@ -129,7 +129,7 @@ button {
 .img {
 	width: 100vw;
 	min-height: 40vh;
-	background-image: url('/assets/scene.webp');
+	background-image: url('assets/scene.webp');
 	background-size: cover;
 	background-position: center;
 }

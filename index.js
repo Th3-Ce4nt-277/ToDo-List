@@ -1,7 +1,4 @@
 'use strict';
-const data = JSON.parse(localStorage.getItem('TodoData'));
-var taskToEdit = 0;
-
 function startStorage() {
 	if (!localStorage.getItem('TodoData')) {
 		localStorage.setItem(
@@ -10,6 +7,9 @@ function startStorage() {
 		);
 	}
 }
+
+var taskToEdit = 0;
+const data = JSON.parse(localStorage.getItem('TodoData'));
 
 function switchTheme(state) {
 	let icon = {
